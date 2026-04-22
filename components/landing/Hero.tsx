@@ -2,10 +2,13 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { subscribeToNewsletter } from "@/app/actions/subscribe";
 import { validateEmail } from "@/lib/utils";
+import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import { Loader2Icon } from "lucide-react";
 
 export default function Hero() {
   const [email, setEmail] = useState("");
@@ -52,7 +55,7 @@ export default function Hero() {
 
   return (
     <section className="w-full min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-4 py-12">
-      <div className="w-full max-w-2xl">
+      <div className="w-full max-w-3xl">
         <div className="text-center space-y-8">
           {/* Hero Image */}
           <div className="flex justify-center">
@@ -68,11 +71,11 @@ export default function Hero() {
 
           {/* Hero Content */}
           <div className="space-y-4">
-            <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent font-fjalla-one">
-              Welcome to Guardian
+            <h1 className="text-5xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent font-fjalla-one">
+              Get your Free Scam Proof Checklist
             </h1>
-            <p className="text-xl text-slate-300 max-w-lg mx-auto">
-              Your ultimate scam protection solution. Stay safe while browsing the internet.
+            <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+              Stay safe while browsing the internet with our free checklist. Learn how to spot scams, protect your personal information, and avoid common online pitfalls. Download now and surf with confidence!
             </p>
           </div>
 
@@ -86,7 +89,7 @@ export default function Hero() {
                 onChange={(e) => setEmail(e.target.value)}
                 onKeyPress={handleKeyPress}
                 disabled={isLoading}
-                className="px-6 py-3   rounded-lg bg-slate-700 text-white placeholder-slate-400 border border-slate-600 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed sm:flex-1"
+                className="px-6 py-3  rounded-lg bg-slate-700 text-white placeholder-slate-400 border border-slate-600 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed sm:flex-1"
               /> 
               <Button
                 onClick={handleSubscribe}
@@ -95,11 +98,11 @@ export default function Hero() {
               >
                 {isLoading ? (
                   <span className="flex items-center gap-2">
-                    <span className="inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                    <Loader2Icon className="w-4 h-4 animate-spin" />
                     Subscribing...
                   </span>
                 ) : (
-                  "Subscribe"
+                  "Get My Free Checklist"
                 )}
               </Button>
             </div>
@@ -108,6 +111,47 @@ export default function Hero() {
             {error && (
               <p className="text-red-400 text-sm animate-pulse">{error}</p>
             )}
+          </div>
+          <div className="flex justify-center gap-6 pt-4">
+            <Link
+              href="https://x.com/TheScamGuardian"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-blue-400 transition-colors duration-300"
+              aria-label="Twitter"
+            >
+              <FaTwitter className="w-7 h-7" />
+            </Link>
+
+            <Link
+              href="https://www.facebook.com/TheScamGuardian"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-blue-600 transition-colors duration-300"
+              aria-label="Facebook"
+            >
+              <FaFacebook className="w-7 h-7" />
+            </Link>
+
+            <Link
+              href="https://www.instagram.com/thescamguardian/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-pink-500 transition-colors duration-300"
+              aria-label="Instagram"
+            >
+              <FaInstagram className="w-7 h-7" />
+            </Link>
+
+              <Link
+              href="https://www.youtube.com/@TheScamGuardian"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-pink-500 transition-colors duration-300"
+              aria-label="Instagram"
+            >
+              <FaYoutube className="w-7 h-7" />
+            </Link>
           </div>
         </div>
       </div>
