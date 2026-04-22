@@ -70,12 +70,16 @@ export default function Hero() {
           </div>
 
           {/* Hero Content */}
-          <div className="space-y-4">
+          <div className="space-y-6">
             <h1 className="text-5xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent font-fjalla-one">
               Get your Free Scam Proof Checklist
             </h1>
             <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-              Stay safe while browsing the internet with our free checklist. Learn how to spot scams, protect your personal information, and avoid common online pitfalls. Download now and surf with confidence!
+          Stay safe while browsing the internet. 
+          
+          10 things scammers hope you never do — delivered instantly to your inbox.
+
+
             </p>
           </div>
 
